@@ -23,15 +23,12 @@ class Button:
 
 
 def run_game(screen, screen_width, screen_height, font, high_score_dict):
-    bird_img = pygame.Surface((34, 24), pygame.SRCALPHA)
-    bird_img.fill((255, 255, 0))  # Yellow bird
+    bird_img = pygame.image.load('Assets/Goldship.PNG')
 
-    pipe_img = pygame.Surface((52, 320), pygame.SRCALPHA)
-    pipe_img.fill((0, 200, 0))  # Green pipes
+    pipe_img = pygame.Surface((52, 500), pygame.SRCALPHA)
+    pipe_img.fill((255, 255, 255))  # White pipes
 
-    background = pygame.Surface((screen_width, screen_height))
-    background.fill((135, 206, 235))  # Sky blue
-
+    background = pygame.transform.smoothscale(pygame.image.load('Assets/Background.png'),(500,700))
     bird = Bird(100, screen_height // 2, bird_img)
     pipes = []
     SPAWNPIPE = pygame.USEREVENT
@@ -95,15 +92,15 @@ def run_game(screen, screen_width, screen_height, font, high_score_dict):
 
 def main():
     pygame.init()
-    screen_width, screen_height = 400, 600
+    screen_width, screen_height = 500, 700
     screen = pygame.display.set_mode((screen_width, screen_height))
-    pygame.display.set_caption("Flappy Bird Clone")
+    pygame.display.set_caption("Flappy Goldship")
     font = pygame.font.SysFont(None, 48)
     small_font = pygame.font.SysFont(None, 36)
 
     start_button = Button((screen_width // 2 - 80, screen_height // 2 - 30, 160, 60),
                           "START", font, (0, 150, 0))
-    again_button = Button((screen_width // 2 - 100, screen_height // 2 + 40, 200, 60),
+    again_button = Button((screen_width // 2 - 100, screen_height // 2 + 60, 200, 60),
                           "PLAY AGAIN", font, (200, 0, 0))
 
     high_score_dict = {"score": 0}  # Store high score for real-time updates
@@ -113,7 +110,7 @@ def main():
         waiting = True
         while waiting:
             screen.fill((50, 50, 100))
-            title = font.render("Flappy Bird", True, (255, 255, 0))
+            title = font.render("Flappy Goldship", True, (255, 255, 0))
             high_text = small_font.render(f"High Score: {high_score_dict['score']}", True, (255, 255, 255))
             screen.blit(title, (screen_width // 2 - title.get_width() // 2, 150))
             screen.blit(high_text, (screen_width // 2 - high_text.get_width() // 2, 230))

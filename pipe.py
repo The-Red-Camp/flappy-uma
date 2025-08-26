@@ -2,7 +2,7 @@ import pygame
 import random
 
 class Pipe:
-    def __init__(self, x: int, screen_height: int, image: pygame.Surface, gap_size: int = 150):
+    def __init__(self, x: int, screen_height: int, image: pygame.Surface, gap_size: int = 250):
         """
         Initialize a pair of pipes (top and bottom).
         

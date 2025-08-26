@@ -1,7 +1,7 @@
 import pygame
 
 class Bird:
-    def __init__(self, x: int, y: int, image: pygame.Surface):
+    def __init__(self, x: int, y: int, image):
         """
         Initialize the Bird object.
 
@@ -10,6 +10,7 @@ class Bird:
         image pygame.Surface: Bird sprite/image surface
         """
         self.image = image
+        self.image = pygame.transform.smoothscale(self.image, (100,130))
         self.rect = self.image.get_rect(center=(x, y))
 
         self.velocity = 0
