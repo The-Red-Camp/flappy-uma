@@ -8,7 +8,7 @@ git clone https://github.com/The-Red-Camp/flappy-uma.git
 ### 2. Change directory to the project root
 
 ```bash
-cd flappy-clone
+cd flappy-uma
 ```
 
 ### 3. Create a Python virtual environment
