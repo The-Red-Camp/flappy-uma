@@ -37,6 +37,10 @@ class Pipe:
         """Check if the pipe has moved off the left side of the screen."""
         return self.top_rect.right < 0
 
-    def collides_with(self, bird_rect: pygame.Rect) -> bool:
-        """Check for collision with the bird."""
-        return bird_rect.colliderect(self.top_rect) or bird_rect.colliderect(self.bottom_rect)
+    def collides_with(self, bird) -> bool:
+        """Check collision with the bird's hitboxes."""
+        for hitbox in bird.get_hitboxes():
+            if hitbox.colliderect(self.top_rect) or hitbox.colliderect(self.bottom_rect):
+                return True
+        return False
+

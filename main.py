@@ -57,7 +57,7 @@ def run_game(screen, screen_width, screen_height, font, high_score_dict):
 
         # Collision
         for pipe in pipes:
-            if pipe.collides_with(bird.rect):
+            if pipe.collides_with(bird):
                 running = False
         if bird.rect.top <= 0 or bird.rect.bottom >= screen_height:
             running = False
